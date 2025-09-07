@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+.bg-bar {
+  @apply bg-[#153448];
+}
+
+.text-bar {
+  @apply text-[#153448];
+}
+
+.bg-background {
+  @apply bg-[#faf9df];
+}
+
+.bg-component {
+  @apply bg-[#DFD0B8] p-3;
+}
+
+.bg-primary {
+  @apply bg-[#a23b72];
+}
+
+.nav-link {
+  @apply text-gray-200 hover:text-white transition-all duration-200 select-none;
+}
+
+.mob-link {
+  @apply text-gray-200 focus:text-white block p-1 select-none;
+}
+
+.btn-primary {
+  @apply bg-[#3C5B6F] hover:bg-[#7d96c5] px-5 py-2 rounded-xl font-medium select-none cursor-pointer transition-all duration-300;
+}
+
+.nav-btn {
+  @apply text-[16px] bg-[#3C5B6F] hover:bg-[#7d96c5] px-5 py-2 rounded-xl font-medium select-none cursor-pointer transition-all duration-300;
+}
+
+.border-bar {
+  @apply border-[#153448];
+}
+
+.component-top {
+  @apply rounded-t-2xl min-h-[calc(100vh-300px)] md:w-[90%] w-full mx-auto border;
+}
+
+.sider-link {
+  @apply hover:bg-white hover:text-black transition-all duration-300 my-2 block w-full text-start rounded-xl font-bold  p-3  outline;
+}

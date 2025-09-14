@@ -3,6 +3,7 @@ import { useTabContext } from "../../../../contexts/Tab/TabContext";
 import { Col, Form, Input, Row } from "antd";
 import ReactQuill from "react-quill-new";
 import axios from "axios";
+import { useAuthContext } from "../../../../contexts/Auth/AuthContext";
 
 const initValue = {
   title: "",
@@ -13,13 +14,13 @@ const NewNotes = () => {
   const [value, setValue] = useState(initValue);
   const [content, setContent] = useState("");
   const { setCurrentTab } = useTabContext();
+  const { user } = useAuthContext();
   useEffect(() => {
     setCurrentTab("New_Notes");
   }, []);
 
   const handleChange = (e) =>
     setValue((s) => ({ ...s, [e.target.name]: e.target.value }));
-
   const handleSubmit = (e) => {
     e.preventDefault();
     let { title, allowedUsers } = value;
@@ -34,6 +35,7 @@ const NewNotes = () => {
       allowedUsers: emails,
       access: "Private",
       content: trimContent,
+      createdBy: user._id
     };
     console.log(formData);
 

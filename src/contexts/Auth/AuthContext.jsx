@@ -49,13 +49,10 @@ const AuthProvider = ({ children }) => {
   };
   useEffect(() => {
     fetchProfile();
-  }, [fetchProfile]);
-
-  useEffect(() => {
     if (session?.exp && session.exp <= Date.now()) {
       handleLogout();
     }
-  }, [session]);
+  }, [fetchProfile]);
 
   if (isLoading) return <Loader />;
   return (

@@ -1,6 +1,8 @@
 import { Col, Form, Input, Row } from "antd";
+import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../../contexts/Auth/AuthContext";
 
 const initialState = {
   email: "",
@@ -9,13 +11,33 @@ const initialState = {
 
 const Login = () => {
   const [state, setState] = useState(initialState);
-
+  const navigate = useNavigate();
+  const { isAuth, setIsAuth } = useAuthContext();
   const handleChange = (e) =>
     setState((s) => ({ ...s, [e.target.name]: e.target.value }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("User:", state);
+    let { email, password } = state;
+    email = email.trim();
+    const formData = {
+      email,
+      password,
+    };
+    axios
+      .post("/api/login", formData)
+      .then((res) => {
+        const token = res.data.token;
+        if (token) setIsAuth(true);
+        console.log(token);
+        localStorage.setItem("authToken", token);
+        console.log(isAuth);
+        // if (isAuth) navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
   return (
     <div className="flex justify-center items-center min-h-screen bg-bar p-3">

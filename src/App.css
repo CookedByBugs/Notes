@@ -1,7 +1,22 @@
 @import "tailwindcss";
 
+.ql-container {
+  min-height: 16rem; /* same as h-64 */
+}
+
+.ql-editor h1 {
+  font-size: 1.5rem !important; /* Tailwind’s text-2xl */
+  font-weight: bold !important;
+}
+.ql-editor p {
+  margin-bottom: 0.75rem !important; /* Tailwind’s mb-3 */
+}
+
 .bg-bar {
   @apply bg-[#153448];
+}
+.outline-bar {
+  @apply outline-[#153448];
 }
 
 .text-bar {
@@ -10,6 +25,16 @@
 
 .bg-background {
   @apply bg-[#faf9df];
+}
+.border-background {
+  @apply border-[#faf9df];
+}
+
+.btn-primary {
+  @apply hover:bg-[#3C5B6F] bg-[#153448] px-5 py-2 rounded-xl font-medium select-none cursor-pointer transition-all duration-300;
+}
+.btn-secondary {
+  @apply bg-[#3C5B6F] hover:bg-[#153448] hover:outline px-5 py-2 rounded-xl font-medium select-none cursor-pointer transition-all duration-300;
 }
 
 .bg-component {
@@ -25,11 +50,7 @@
 }
 
 .mob-link {
-  @apply text-gray-200 focus:text-white block p-1 select-none;
-}
-
-.btn-primary {
-  @apply bg-[#3C5B6F] hover:bg-[#7d96c5] px-5 py-2 rounded-xl font-medium select-none cursor-pointer transition-all duration-300;
+  @apply text-gray-200 focus:text-white block p-1 select-none text-lg;
 }
 
 .nav-btn {

@@ -1,4 +1,5 @@
-import { Col, Form, Input, Row } from "antd";
+import { Col, Form, Input, message, Row } from "antd";
+import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -19,7 +20,38 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("User:", state);
+    let { firstName, lastName, email, password, confirmPassword } = state;
 
+    // Logics
+
+    if (!firstName) return message.error("Please enter first name");
+    if (!lastName) return message.error("Please enter last name");
+    if (!email) return message.error("Please enter email");
+    if (!password) return message.error("Please enter password");
+    if (password !== confirmPassword)
+      return message.error("Passwords doesn't match");
+
+    // Data cleaning
+
+    firstName = firstName.trim();
+    lastName = lastName.trim();
+    email = email.trim();
+
+    const formData = {
+      firstName,
+      lastName,
+      email,
+      password,
+    };
+
+    console.log(formData);
+
+    axios
+      .post("/api/register", formData)
+      .then((res) => {
+        console.log("Registering user");
+      })
+      .catch((err) => console.error(err));
   };
   return (
     <div className="flex justify-center items-center min-h-screen bg-bar p-3">
@@ -50,8 +82,8 @@ const Register = () => {
                   <Input
                     onChange={handleChange}
                     size="middle"
-                    name="Last Name"
-                    placeholder="Email"
+                    name="lastName"
+                    placeholder="Last Name"
                   />
                 </Form.Item>
               </Col>

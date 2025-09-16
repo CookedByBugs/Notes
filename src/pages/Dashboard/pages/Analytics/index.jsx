@@ -10,11 +10,11 @@ const Analytics = () => {
     setCurrentTab("Dashboard");
   }, []);
   return (
-    <div className="w-[90%] mx-auto min-h-screen">
+    <div className="w-[90%] mx-auto min-h-screen mt-40">
       <div className="my-10">
         <div>
           <h2 className="font-bold text-4xl">
-            Hello {`${user.firstName} ${user.lastName}`},
+            Hello {`${user?.firstName} ${user?.lastName}`},
           </h2>
         </div>
       </div>

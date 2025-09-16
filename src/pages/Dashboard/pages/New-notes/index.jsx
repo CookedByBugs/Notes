@@ -35,7 +35,7 @@ const NewNotes = () => {
       allowedUsers: emails,
       access: "Private",
       content: trimContent,
-      createdBy: user._id
+      createdBy: user._id,
     };
     console.log(formData);
 
@@ -114,7 +114,6 @@ const NewNotes = () => {
             </Col>
           </Row>
         </Form>
-        <div dangerouslySetInnerHTML={{ __html: content }}></div>
       </div>
     </div>
   );

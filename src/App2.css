@@ -13,40 +13,36 @@
 }
 
 .bg-bar {
-  @apply bg-[#3B0270];
+  @apply bg-[#153448];
 }
 .outline-bar {
-  @apply outline-[#3B0270];
+  @apply outline-[#153448];
 }
 
 .text-bar {
-  @apply !text-[#3B0270];
-}
-
-.border-bar {
-  @apply !border-[#3B0270];
+  @apply text-[#153448];
 }
 
 .bg-background {
-  @apply bg-[#FFF1F1];
+  @apply bg-[#faf9df];
 }
 .border-background {
-  @apply border-[#FFF1F1];
+  @apply border-[#faf9df];
 }
 
 .btn-primary {
-  @apply hover:bg-[#E9B3FB] bg-[#6F00FF] hover:text-black px-5 py-2 rounded-xl font-medium select-none cursor-pointer transition-all duration-300;
+  @apply hover:bg-[#3C5B6F] bg-[#153448] px-5 py-2 rounded-xl font-medium select-none cursor-pointer transition-all duration-300;
 }
 .btn-secondary {
-  @apply bg-[#E9B3FB] hover:bg-[#6F00FF] hover:outline px-5 py-2 rounded-xl font-medium select-none cursor-pointer transition-all duration-300;
+  @apply bg-[#3C5B6F] hover:bg-[#153448] hover:outline px-5 py-2 rounded-xl font-medium select-none cursor-pointer transition-all duration-300;
 }
 
 .bg-component {
-  @apply bg-[#E9B3FB] p-3;
+  @apply bg-[#DFD0B8] p-3;
 }
 
 .bg-primary {
-  @apply bg-[#6F00FF];
+  @apply bg-[#a23b72];
 }
 
 .nav-link {
@@ -61,6 +57,9 @@
   @apply text-[16px] bg-[#3C5B6F] hover:bg-[#7d96c5] px-5 py-2 rounded-xl font-medium select-none cursor-pointer transition-all duration-300;
 }
 
+.border-bar {
+  @apply border-[#153448];
+}
 
 .component-top {
   @apply rounded-t-2xl min-h-[calc(100vh-300px)] md:w-[90%] w-full mx-auto border;

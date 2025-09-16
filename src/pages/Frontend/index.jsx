@@ -5,8 +5,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { Input } from "antd";
 import SearchBar from "../../components/SearchBar";
-import Shared from "./Shared";
-import Private from "./Private";
+
 const Frontend = () => {
   return (
     <main className="flex flex-col min-h-screen bg-background">
@@ -14,8 +13,6 @@ const Frontend = () => {
       <SearchBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shared" element={<Shared />} />
-        <Route path="/private" element={<Private />} />
       </Routes>
       <Footer />
     </main>

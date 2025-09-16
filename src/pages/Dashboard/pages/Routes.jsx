@@ -5,6 +5,9 @@ import { useTabContext } from "../../../contexts/Tab/TabContext";
 import Analytics from "./Analytics";
 import Profile from "./Profile";
 import NewNotes from "./New-notes";
+import AllNotes from "./All-notes";
+import Private from "./Private";
+import Shared from "./Shared";
 
 const Index = () => {
   const { siderOpen, setSiderOpen } = useTabContext();
@@ -20,6 +23,9 @@ const Index = () => {
           <Route path="/" element={<Analytics />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/new-notes" element={<NewNotes />} />
+          <Route path="/all-notes" element={<AllNotes />} />
+          <Route path="/shared-notes" element={<Shared />} />
+          <Route path="/private-notes" element={<Private />} />
         </Routes>
       </div>
     </main>

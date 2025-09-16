@@ -36,7 +36,7 @@ const Header = () => {
         </div>
         <div className="hidden md:flex justify-center items-center">
           {isAuth ? null : (
-            <Link to="/auth/login" className="btn-secondary">
+            <Link to="/auth/login" className="btn-primary">
               Login
             </Link>
           )}

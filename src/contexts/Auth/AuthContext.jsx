@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
         setUser(res.data.user);
         setSession(res.data.session);
         console.log("res.data ", res.data);
-        console.log("session: ", session);
+        console.log("session: ", res.data.session);
       })
       .catch((error) => {
         console.error("Invalid token", error);
@@ -41,7 +41,6 @@ const AuthProvider = ({ children }) => {
         setIsLoading(false);
       });
   }, []);
-
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     setIsAuth(false);

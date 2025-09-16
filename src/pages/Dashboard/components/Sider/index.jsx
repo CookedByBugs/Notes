@@ -3,6 +3,7 @@ import {
   BarChartOutlined,
   CloseOutlined,
   FileAddOutlined,
+  FileOutlined,
   HomeFilled,
   LockOutlined,
   MenuOutlined,
@@ -66,6 +67,14 @@ const Sider = () => {
           }`}
         >
           <FileAddOutlined className="text-xl" /> New Notes
+        </Link>
+        <Link
+          to={"/dashboard/all-notes"}
+          className={`sider-link ${
+            currentTab == "All_Notes" ? "bg-white text-black" : "text-white"
+          }`}
+        >
+          <FileOutlined className="text-xl" /> All Notes
         </Link>
         <Link
           to={"/dashboard/shared-notes"}

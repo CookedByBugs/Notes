@@ -25,10 +25,10 @@ const Profile = () => {
             </div>
             <div className="flex justify-center items-center flex-col">
               <h2 className="text-xl my-1 font-semibold">
-                Name: <span className="font-normal">{`${user.firstName} ${user.lastName}`}</span>
+                Name: <span className="font-normal">{`${user?.firstName} ${user?.lastName}`}</span>
               </h2>
               <h2 className="text-xl my-1 font-semibold">
-                Email: <span className="font-normal">{user.email}</span>
+                Email: <span className="font-normal">{user?.email}</span>
               </h2>
               <h2 className="text-xl my-1 font-semibold">
                 Tagline: <span className="font-normal">I share words</span>

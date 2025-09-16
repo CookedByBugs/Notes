@@ -3,6 +3,7 @@ import { useTabContext } from "../../../../contexts/Tab/TabContext";
 import axios from "axios";
 import SearchBar from "../../../../components/SearchBar";
 import { Divider } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const MyNotes = () => {
   const { setCurrentTab } = useTabContext();
@@ -10,6 +11,7 @@ const MyNotes = () => {
   useEffect(() => {
     setCurrentTab("All_Notes");
   }, []);
+  const navigate = useNavigate();
   const getNotes = useCallback(async () => {
     await axios
       .get("/api/get", {
@@ -33,15 +35,18 @@ const MyNotes = () => {
       <SearchBar />
       <div className="bg-component component-top border-bar">
         <Divider className="!text-2xl border-bar text-center text-bar !font-bold">
-            All Notes
+          All Notes
         </Divider>
         {notes?.map((note, i) => {
           return (
             <div
+              onClick={() => {
+                navigate(`/dashboard/all-notes/${note._id}`);
+              }}
               key={i}
-              className="bg-white rounded-2xl p-3 my-2 hover:shadow h-[100px] overflow-y-hidden flex flex-col"
+              className="bg-white rounded-2xl p-3 my-2 hover:shadow-xl transition-all duration-300 h-[100px] overflow-y-hidden flex flex-col cursor-pointer"
             >
-              <h3 className="text-3xl font-bold">{note.title}</h3>
+              <h3 className="text-3xl text-bar font-bold">{note.title}</h3>
               <p
                 dangerouslySetInnerHTML={{ __html: note.content }}
                 className="mt-auto"
@@ -51,7 +56,6 @@ const MyNotes = () => {
         })}
       </div>
     </div>
-
   );
 };
 

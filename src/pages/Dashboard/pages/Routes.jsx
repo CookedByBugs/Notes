@@ -8,6 +8,7 @@ import NewNotes from "./New-notes";
 import AllNotes from "./All-notes";
 import Private from "./Private";
 import Shared from "./Shared";
+import Note from "./Note";
 
 const Index = () => {
   const { siderOpen, setSiderOpen } = useTabContext();
@@ -26,6 +27,7 @@ const Index = () => {
           <Route path="/all-notes" element={<AllNotes />} />
           <Route path="/shared-notes" element={<Shared />} />
           <Route path="/private-notes" element={<Private />} />
+          <Route path="/all-notes/:id" element={<Note />} />
         </Routes>
       </div>
     </main>

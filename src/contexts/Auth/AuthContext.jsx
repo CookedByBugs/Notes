@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
   const fetchProfile = useCallback(async () => {
     const token = localStorage.getItem("authToken");
     if (!token) return setIsLoading(false);
-    console.log(token);
+    // console.log(token);
     await axios
       .get("/api/profile", {
         headers: {
@@ -28,8 +28,8 @@ const AuthProvider = ({ children }) => {
         setIsAuth(true);
         setUser(res.data.user);
         setSession(res.data.session);
-        console.log("res.data ", res.data);
-        console.log("session: ", res.data.session);
+        // console.log("res.data ", res.data);
+        // console.log("session: ", res.data.session);
       })
       .catch((error) => {
         console.error("Invalid token", error);

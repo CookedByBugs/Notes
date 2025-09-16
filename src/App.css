@@ -27,6 +27,10 @@
   @apply !border-[#3B0270];
 }
 
+.text-primary{
+  @apply text-[#E9B3FB]
+}
+
 .bg-background {
   @apply bg-[#FFF1F1];
 }

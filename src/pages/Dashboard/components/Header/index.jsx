@@ -6,7 +6,7 @@ const Header = () => {
   const { handleLogout } = useAuthContext();
   const { siderOpen, setSiderOpen } = useTabContext();
   return (
-    <div className="fixed right-0 left-0 top-0">
+    <div className="z-10 fixed right-0 left-0 top-0">
       <div className="flex justify-between items-center bg-bar text-white py-3 pe-3 ">
         <div className="">
           <button

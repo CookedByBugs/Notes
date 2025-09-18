@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTabContext } from "../../../../contexts/Tab/TabContext";
-import { Col, Form, Input, Row } from "antd";
+import { Col, Form, Input, Row, Select } from "antd";
 import ReactQuill from "react-quill-new";
 import axios from "axios";
 import { useAuthContext } from "../../../../contexts/Auth/AuthContext";
@@ -11,6 +11,7 @@ const initValue = {
 };
 
 const NewNotes = () => {
+  const [access, setAccess] = useState(null);
   const [value, setValue] = useState(initValue);
   const [content, setContent] = useState("");
   const { setCurrentTab } = useTabContext();
@@ -33,7 +34,7 @@ const NewNotes = () => {
     const formData = {
       title,
       allowedUsers: emails,
-      access: "Private",
+      access,
       content: trimContent,
       createdBy: user._id,
     };
@@ -56,7 +57,7 @@ const NewNotes = () => {
           layout="vertical"
         >
           <Row gutter={[16, 16]}>
-            <Col lg={12} md={12} sm={24} xs={24}>
+            <Col lg={8} md={8} sm={24} xs={24}>
               <Form.Item
                 label={<span className="font-bold text-lg">Title:</span>}
               >
@@ -69,7 +70,7 @@ const NewNotes = () => {
                 />
               </Form.Item>
             </Col>
-            <Col lg={12} md={12} sm={24} xs={24}>
+            <Col lg={8} md={8} sm={24} xs={24}>
               <Form.Item
                 label={<span className="font-bold text-lg">Allow access:</span>}
               >
@@ -82,6 +83,22 @@ const NewNotes = () => {
                 />
               </Form.Item>
             </Col>
+            <Col lg={8} md={8} sm={24} xs={24}>
+              <Form.Item
+                label={<span className="font-bold text-lg">Access:</span>}
+              >
+                <div>
+                  <Select
+                    size="large"
+                    placeholder="Set availability..."
+                    onChange={(value) => setAccess(value)}
+                  >
+                    <Select.Option value="Public">Public</Select.Option>
+                    <Select.Option value="Private">Private</Select.Option>
+                  </Select>
+                </div>
+              </Form.Item>
+            </Col>
             <Col span={24}>
               <Form.Item
                 label={<span className="font-bold text-lg">Note:</span>}
@@ -91,11 +108,19 @@ const NewNotes = () => {
                     // editor height
                     onChange={(value) => setContent(value)}
                     className="!prose !max-w-none"
-                    formats={["bold", "italic", "underline", "link", "image"]}
+                    formats={[
+                      "bold",
+                      "italic",
+                      "underline",
+                      "link",
+                      "image",
+                      "align",
+                    ]}
                     modules={{
                       toolbar: [
                         ["bold", "italic", "underline"],
                         ["link"], // media
+                        [{ align: [] }],
                       ],
                     }}
                   />

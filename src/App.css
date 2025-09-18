@@ -7,6 +7,7 @@
 .ql-editor h1 {
   font-size: 1.5rem !important; /* Tailwind’s text-2xl */
   font-weight: bold !important;
+  color: black !important;
 }
 .ql-editor p {
   margin-bottom: 0.75rem !important; /* Tailwind’s mb-3 */

@@ -46,7 +46,7 @@ const MyNotes = () => {
               key={i}
               className="bg-white rounded-2xl p-3 my-2 hover:shadow-xl transition-all duration-300 h-[100px] overflow-y-hidden flex flex-col cursor-pointer"
             >
-              <h3 className="text-3xl text-bar font-bold">{note.title}</h3>
+              <h3 className="md:text-3xl text-xl text-bar font-bold">{note.title}</h3>
               <p
                 dangerouslySetInnerHTML={{ __html: note.content }}
                 className="mt-auto"

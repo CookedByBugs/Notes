@@ -26,7 +26,7 @@ const AuthProvider = ({ children }) => {
         },
       })
       .then((res) => {
-        console.log("res.data ", res.data);
+        // console.log("res.data ", res.data);
         setIsAuth(true);
         setData(res.data);
         setUser(res.data.user);

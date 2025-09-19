@@ -3,6 +3,7 @@ import { useTabContext } from "../../../../contexts/Tab/TabContext";
 import axios from "axios";
 import SearchBar from "../../../../components/SearchBar";
 import { Divider } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
 const MyNotes = () => {
@@ -20,9 +21,7 @@ const MyNotes = () => {
         },
       })
       .then((res) => {
-        setNotes(res.data);
-        console.log("Notes:", res.data);
-      })
+        setNotes(res.data);      })
       .catch((error) => {
         console.error(error);
       });
@@ -44,9 +43,11 @@ const MyNotes = () => {
                 navigate(`/dashboard/all-notes/${note._id}`);
               }}
               key={i}
-              className="bg-white rounded-2xl p-3 my-2 hover:shadow-xl transition-all duration-300 h-[100px] overflow-y-hidden flex flex-col cursor-pointer"
+              className="relative  bg-white rounded-2xl p-3 my-2 hover:shadow-xl transition-all duration-300 h-[100px] overflow-y-hidden flex flex-col cursor-pointer"
             >
-              <h3 className="md:text-3xl text-xl text-bar font-bold">{note.title}</h3>
+              <h3 className="md:text-3xl text-xl text-bar font-bold">
+                {note.title}
+              </h3>
               <p
                 dangerouslySetInnerHTML={{ __html: note.content }}
                 className="mt-auto"
@@ -58,5 +59,12 @@ const MyNotes = () => {
     </div>
   );
 };
+
+/*  <div className="">
+                <button className="bg-red-500 font-semibold text-white p-2 rounded-xl absolute top-1/2 right-5 -translate-y-1/2">
+                  <DeleteOutlined /> Delete
+                </button>
+              </div>
+ */
 
 export default MyNotes;

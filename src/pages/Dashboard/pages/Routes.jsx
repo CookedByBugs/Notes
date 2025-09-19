@@ -26,6 +26,7 @@ const Index = () => {
           <Route path="/new-notes" element={<NewNotes />} />
           <Route path="/all-notes" element={<AllNotes />} />
           <Route path="/shared-notes" element={<Shared />} />
+          <Route path="/shared-notes/:id" element={<Note />} />
           <Route path="/private-notes" element={<Private />} />
           <Route path="/all-notes/:id" element={<Note />} />
         </Routes>

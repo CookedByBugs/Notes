@@ -1,13 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import SearchBar from "../../../../components/SearchBar";
 import { useTabContext } from "../../../../contexts/Tab/TabContext";
 import { Divider } from "antd";
-
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useAuthContext } from "../../../../contexts/Auth/AuthContext";
 const Shared = () => {
-  const notes = [];
+  const [notes, setNotes] = useState([]);
+  const { user } = useAuthContext();
   const { setCurrentTab } = useTabContext();
   useEffect(() => {
     setCurrentTab("Shared_Notes");
+  }, []);
+
+  const getNotes = async () => {
+    await axios
+      .get(`/api/get/private`, {
+        params: { userId: user._id },
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    getNotes();
   }, []);
   return (
     <div>

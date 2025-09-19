@@ -6,9 +6,8 @@ import { useAuthContext } from "./contexts/Auth/AuthContext";
 import Loader from "./components/Loader";
 
 const App = () => {
-  const { isLoading, isAuth } = useAuthContext();
+  const { isLoading } = useAuthContext();
 
-  console.log(isAuth);
   return <div>{isLoading ? <Loader /> : <Routes />}</div>;
 };
 

@@ -11,6 +11,7 @@ import Loader from "../../components/Loader";
 const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState({});
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState(null);
   const [session, setSession] = useState({});
@@ -25,10 +26,11 @@ const AuthProvider = ({ children }) => {
         },
       })
       .then((res) => {
+        console.log("res.data ", res.data);
         setIsAuth(true);
+        setData(res.data);
         setUser(res.data.user);
         setSession(res.data.session);
-        // console.log("res.data ", res.data);
         // console.log("session: ", res.data.session);
       })
       .catch((error) => {
@@ -41,6 +43,8 @@ const AuthProvider = ({ children }) => {
         setIsLoading(false);
       });
   }, []);
+
+
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     setIsAuth(false);
@@ -48,10 +52,10 @@ const AuthProvider = ({ children }) => {
   };
   useEffect(() => {
     fetchProfile();
-    if (session?.exp && session.exp <= Date.now()) {
+    if (session?.exp && session.exp * 1000 <= Date.now()) {
       handleLogout();
     }
-  }, [fetchProfile]);
+  }, [isAuth]);
 
   if (isLoading) return <Loader />;
   return (

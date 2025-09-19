@@ -46,7 +46,7 @@ const Sider = () => {
         <Link
           to={"/dashboard"}
           className={`sider-link ${
-            currentTab == "Dashboard" ? "bg-white text-black" : "text-white"
+            currentTab == "Dashboard" ? "bg-secondary text-black" : "text-white"
           }`}
         >
           <BarChartOutlined className="text-xl" />
@@ -55,7 +55,7 @@ const Sider = () => {
         <Link
           to={"/dashboard/profile"}
           className={`sider-link ${
-            currentTab == "Profile" ? "bg-white text-black" : "text-white"
+            currentTab == "Profile" ? "bg-secondary text-black" : "text-white"
           }`}
         >
           <UserOutlined className="text-xl" /> Profile
@@ -63,7 +63,7 @@ const Sider = () => {
         <Link
           to={"/dashboard/new-notes"}
           className={`sider-link ${
-            currentTab == "New_Notes" ? "bg-white text-black" : "text-white"
+            currentTab == "New_Notes" ? "bg-secondary text-black" : "text-white"
           }`}
         >
           <FileAddOutlined className="text-xl" /> New Notes
@@ -71,7 +71,7 @@ const Sider = () => {
         <Link
           to={"/dashboard/all-notes"}
           className={`sider-link ${
-            currentTab == "All_Notes" ? "bg-white text-black" : "text-white"
+            currentTab == "All_Notes" ? "bg-secondary text-black" : "text-white"
           }`}
         >
           <FileOutlined className="text-xl" /> All Notes
@@ -79,7 +79,7 @@ const Sider = () => {
         <Link
           to={"/dashboard/shared-notes"}
           className={`sider-link ${
-            currentTab == "Shared_Notes" ? "bg-white text-black" : "text-white"
+            currentTab == "Shared_Notes" ? "bg-secondary text-black" : "text-white"
           }`}
         >
           <TeamOutlined className="text-xl" /> Shared Notes
@@ -87,7 +87,7 @@ const Sider = () => {
         <Link
           to={"/dashboard/private-notes"}
           className={`sider-link ${
-            currentTab == "Private_Notes" ? "bg-white text-black" : "text-white"
+            currentTab == "Private_Notes" ? "bg-secondary text-black" : "text-white"
           }`}
         >
           <LockOutlined className="text-xl" /> Private Notes

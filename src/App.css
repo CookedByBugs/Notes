@@ -32,8 +32,12 @@
   @apply text-[#E9B3FB]
 }
 
+.bg-secondary{
+  @apply bg-[#E9B3FB]
+}
+
 .bg-background {
-  @apply bg-[#FFF1F1];
+  @apply !bg-[#FFF1F1];
 }
 .border-background {
   @apply border-[#FFF1F1];
@@ -72,5 +76,9 @@
 }
 
 .sider-link {
-  @apply hover:bg-white hover:text-black transition-all duration-300 my-2 block w-full text-start rounded-xl font-bold  p-3  outline;
+  @apply hover:bg-[#E9B3FB] hover:text-black transition-all duration-300 my-2 block w-full text-start rounded-xl font-bold  p-3  ;
+}
+
+.card{
+  @apply bg-white p-3 rounded-2xl
 }

@@ -2,6 +2,7 @@ import { Col, Row } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../../../../contexts/Auth/AuthContext";
+import { API } from "../../../../api";
 
 const Cards = () => {
   const { user } = useAuthContext();
@@ -9,7 +10,7 @@ const Cards = () => {
   const [sharedNotes, setSharedNotes] = useState([]);
   const [privateNotes, setPrivateNotes] = useState([]);
   const getNotes = async () => {
-    await axios
+    await API
       .get("/api/get/my-notes", {
         params: { userId: user._id },
       })
@@ -19,7 +20,7 @@ const Cards = () => {
       .catch((err) => console.error(err));
   };
   const getSharedNotes = async () => {
-    await axios
+    await API
       .get("/api/get/shared", {
         params: {
           userId: user._id,
@@ -33,7 +34,7 @@ const Cards = () => {
       });
   };
   const getPrivateNotes = async () => {
-    await axios
+    await API
       .get("/api/get/private", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,

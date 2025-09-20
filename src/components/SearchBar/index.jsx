@@ -10,7 +10,7 @@ const SearchBar = () => {
 
   const handleSubmit = async () => {
     console.log(search);
-    // await axios
+    // await API
     //   .get(`/api/notes/search?query=${query}`, {
     //     headers: {
     //       Authorization: `Bearer ${localStorage.getItem("authToken")}`,

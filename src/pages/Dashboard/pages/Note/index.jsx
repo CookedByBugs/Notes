@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import ReactQuill from "react-quill-new";
 import { useParams } from "react-router-dom";
+import { API } from "../../../../api";
 
 const Note = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const Note = () => {
   };
 
   const handleUpdate = async () => {
-    await axios
+    await API
       .put(
         `/api/${id}`,
         {
@@ -46,7 +47,7 @@ const Note = () => {
   };
 
   const getNote = useCallback(async () => {
-    await axios
+    await API
       .get(`/api/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,

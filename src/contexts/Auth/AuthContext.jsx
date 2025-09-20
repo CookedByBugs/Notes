@@ -7,6 +7,7 @@ import React, {
   useState,
 } from "react";
 import Loader from "../../components/Loader";
+import { API } from "../../api";
 
 const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
@@ -19,7 +20,7 @@ const AuthProvider = ({ children }) => {
     const token = localStorage.getItem("authToken");
     if (!token) return setIsLoading(false);
     // console.log(token);
-    await axios
+    await API
       .get("/api/profile", {
         headers: {
           Authorization: `Bearer ${token}`,

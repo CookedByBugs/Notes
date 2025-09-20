@@ -5,6 +5,7 @@ import SearchBar from "../../../../components/SearchBar";
 import { Divider } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../../../api";
 
 const AllNotes = () => {
   const { setCurrentTab } = useTabContext();
@@ -14,7 +15,7 @@ const AllNotes = () => {
   }, []);
   const navigate = useNavigate();
   const getNotes = useCallback(async () => {
-    await axios
+    await API
       .get("/api/get", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,

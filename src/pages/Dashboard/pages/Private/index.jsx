@@ -5,6 +5,7 @@ import SearchBar from "../../../../components/SearchBar";
 import { Divider } from "antd";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../../../api.jsx";
 const Private = () => {
   const [notes, setNotes] = useState([]);
   const { user } = useAuthContext();
@@ -15,7 +16,7 @@ const Private = () => {
   }, []);
 
   const getNotes = async () => {
-    await axios
+    await API
       .get(`/api/get/private`,{headers:{
         Authorization: `Bearer ${localStorage.getItem("authToken")}`
       }})

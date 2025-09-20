@@ -6,6 +6,7 @@ import { Divider, message } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../../../api.jsx";
 const MyNotes = () => {
   const [notes, setNotes] = useState([]);
   const { user } = useAuthContext();
@@ -16,7 +17,7 @@ const MyNotes = () => {
   }, []);
 
   const getNotes = async () => {
-    await axios
+    await API
       .get(`/api/get/notes`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -31,7 +32,7 @@ const MyNotes = () => {
       });
   };
   const handleDelete = async (id) => {
-    await axios
+    await API
       .delete(`/api/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,

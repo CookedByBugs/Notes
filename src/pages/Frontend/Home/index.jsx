@@ -14,7 +14,6 @@ const Home = () => {
     await axios
       .get("/api/get/public")
       .then((res) => {
-        console.log(res.data);
         setNotes(res.data);
       })
       .catch((error) => {

@@ -20,7 +20,6 @@ const Shared = () => {
         params: { userId: user._id },
       })
       .then((res) => {
-        console.log(res.data);
         setNotes(res.data);
       })
       .catch((error) => {

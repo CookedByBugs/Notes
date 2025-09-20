@@ -25,10 +25,11 @@ const Index = () => {
           <Route path="/new-notes" element={<NewNotes />} />
           <Route path="/all-notes" element={<AllNotes />} />
           <Route path="/my-notes" element={<MyNotes />} />
-          <Route path="/my-notes/:id" element={<Note />} />
           <Route path="/shared-notes" element={<Shared />} />
-          <Route path="/shared-notes/:id" element={<Note />} />
           <Route path="/private-notes" element={<Private />} />
+          <Route path="/private-notes/:id" element={<Note />} />
+          <Route path="/my-notes/:id" element={<Note />} />
+          <Route path="/shared-notes/:id" element={<Note />} />
           <Route path="/all-notes/:id" element={<Note />} />
         </Routes>
       </div>

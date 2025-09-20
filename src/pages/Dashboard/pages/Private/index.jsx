@@ -16,11 +16,10 @@ const Private = () => {
 
   const getNotes = async () => {
     await axios
-      .get(`/api/get/private`, {
-        params: { userId: user._id },
-      })
+      .get(`/api/get/private`,{headers:{
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`
+      }})
       .then((res) => {
-        console.log(res.data);
         setNotes(res.data);
       })
       .catch((error) => {

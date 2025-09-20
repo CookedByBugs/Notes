@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { MenuOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../contexts/Auth/AuthContext";
-
+import profile from "../../assets/profile.png";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isAuth } = useAuthContext();
+  const { isAuth, user } = useAuthContext();
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-bar p-3 text-white">
       <div className="flex justify-between w-[90%] mx-auto">
@@ -35,7 +35,18 @@ const Header = () => {
           <MenuOutlined />
         </div>
         <div className="hidden md:flex justify-center items-center">
-          {isAuth ? null : (
+          {isAuth ? (
+            <div>
+              <div className="h-full">
+                <img
+                  src={profile}
+                  title={`${user?.firstName} ${user?.lastName}`}
+                  className="w-[50px]"
+                  alt=""
+                />
+              </div>
+            </div>
+          ) : (
             <Link to="/auth/login" className="btn-primary">
               Login
             </Link>

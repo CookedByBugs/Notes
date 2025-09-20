@@ -23,7 +23,6 @@ const MyNotes = () => {
         },
       })
       .then((res) => {
-        console.log(res.data);
         setNotes(res.data);
       })
       .catch((error) => {
@@ -39,7 +38,6 @@ const MyNotes = () => {
         },
       })
       .then((res) => {
-        console.log(res.data);
         message.success("Note deleted successfully");
       })
       .catch((error) => {
@@ -55,7 +53,7 @@ const MyNotes = () => {
       <SearchBar />
       <div className="bg-component component-top border-bar">
         <Divider className="!text-2xl border-bar text-center text-bar !font-bold">
-          Private
+          My Notes
         </Divider>
         {notes?.map((note, i) => {
           return (

@@ -9,7 +9,6 @@ const NotesViewer = () => {
     await axios
       .get(`/api/${id}`)
       .then((res) => {
-        console.log(res.data);
         setNote(res.data);
       })
       .catch((error) => {

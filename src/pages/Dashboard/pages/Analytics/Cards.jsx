@@ -2,7 +2,6 @@ import { Col, Row } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../../../../contexts/Auth/AuthContext";
-import { API } from "../../../../api";
 
 const Cards = () => {
   const { user } = useAuthContext();
@@ -10,8 +9,8 @@ const Cards = () => {
   const [sharedNotes, setSharedNotes] = useState([]);
   const [privateNotes, setPrivateNotes] = useState([]);
   const getNotes = async () => {
-    await API
-      .get("/api/get/my-notes", {
+    await axios
+      .get("https://noteshubby.vercel.app/api/get/my-notes", {
         params: { userId: user._id },
       })
       .then((res) => {
@@ -20,8 +19,8 @@ const Cards = () => {
       .catch((err) => console.error(err));
   };
   const getSharedNotes = async () => {
-    await API
-      .get("/api/get/shared", {
+    await axios
+      .get("https://noteshubby.vercel.app/api/get/shared", {
         params: {
           userId: user._id,
         },
@@ -34,8 +33,8 @@ const Cards = () => {
       });
   };
   const getPrivateNotes = async () => {
-    await API
-      .get("/api/get/private", {
+    await axios
+      .get("https://noteshubby.vercel.app/api/get/private", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },

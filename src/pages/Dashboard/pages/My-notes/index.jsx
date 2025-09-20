@@ -6,7 +6,6 @@ import { Divider, message } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { API } from "../../../../api.jsx";
 const MyNotes = () => {
   const [notes, setNotes] = useState([]);
   const { user } = useAuthContext();
@@ -17,8 +16,8 @@ const MyNotes = () => {
   }, []);
 
   const getNotes = async () => {
-    await API
-      .get(`/api/get/notes`, {
+    await axios
+      .get(`https://noteshubby.vercel.app/api/get/notes`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },

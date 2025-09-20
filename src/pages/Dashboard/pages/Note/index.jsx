@@ -3,7 +3,6 @@ import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import ReactQuill from "react-quill-new";
 import { useParams } from "react-router-dom";
-import { API } from "../../../../api";
 
 const Note = () => {
   const { id } = useParams();
@@ -25,9 +24,9 @@ const Note = () => {
   };
 
   const handleUpdate = async () => {
-    await API
+    await axios
       .put(
-        `/api/${id}`,
+        `https://noteshubby.vercel.app/api/${id}`,
         {
           title,
           allowedUsers,

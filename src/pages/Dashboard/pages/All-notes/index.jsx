@@ -5,7 +5,7 @@ import SearchBar from "../../../../components/SearchBar";
 import { Divider } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-import { API } from "../../../../api";
+
 
 const AllNotes = () => {
   const { setCurrentTab } = useTabContext();
@@ -15,8 +15,8 @@ const AllNotes = () => {
   }, []);
   const navigate = useNavigate();
   const getNotes = useCallback(async () => {
-    await API
-      .get("/api/get", {
+    await axios
+      .get("https://noteshubby.vercel.app/api/get", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },

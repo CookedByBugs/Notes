@@ -4,7 +4,6 @@ import { Col, Divider, Row } from "antd";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../../../components/SearchBar";
-import { API } from "../../../api";
 const Home = () => {
   const { setSiderOpen } = useTabContext();
   const [notes, setNotes] = useState([]);
@@ -12,8 +11,8 @@ const Home = () => {
   const navigate = useNavigate();
 
   const getNotes = useCallback(async () => {
-    await API
-      .get("/api/get/public")
+    await axios
+      .get("https://noteshubby.vercel.app/api/get/public")
       .then((res) => {
         setNotes(res.data);
       })

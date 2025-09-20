@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../../../../contexts/Auth/AuthContext";
 import axios from "axios";
-import { API } from "../../../../api";
 
 const Recent = () => {
   const { user } = useAuthContext();
   const [notes, setNotes] = useState([]);
   const getNotes = async () => {
-    await API
-      .get("/api/get/recent", {
+    await axios
+      .get("https://noteshubby.vercel.app/api/get/recent", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },

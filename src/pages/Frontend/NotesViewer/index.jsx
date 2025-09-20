@@ -1,14 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { API } from "../../../api";
 
 const NotesViewer = () => {
   const { id } = useParams();
   const [note, setNote] = useState(null);
   const getNote = async () => {
     await API
-      .get(`/api/${id}`)
+      .get(`https://noteshubby.vercel.app/api/${id}`)
       .then((res) => {
         setNote(res.data);
       })

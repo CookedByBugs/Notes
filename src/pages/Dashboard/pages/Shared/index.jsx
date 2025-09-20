@@ -5,7 +5,7 @@ import { Divider } from "antd";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuthContext } from "../../../../contexts/Auth/AuthContext";
-import { API } from "../../../../api";
+
 const Shared = () => {
   const [notes, setNotes] = useState([]);
   const { user } = useAuthContext();
@@ -17,7 +17,7 @@ const Shared = () => {
 
   const getNotes = async () => {
     await API
-      .get(`/api/get/shared`, {
+      .get(`https://noteshubby.vercel.app/api/get/shared`, {
         params: { userId: user._id },
       })
       .then((res) => {

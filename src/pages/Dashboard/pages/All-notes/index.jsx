@@ -6,7 +6,7 @@ import { Divider } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
-const MyNotes = () => {
+const AllNotes = () => {
   const { setCurrentTab } = useTabContext();
   const [notes, setNotes] = useState(null);
   useEffect(() => {
@@ -60,11 +60,4 @@ const MyNotes = () => {
   );
 };
 
-/*  <div className="">
-                <button className="bg-red-500 font-semibold text-white p-2 rounded-xl absolute top-1/2 right-5 -translate-y-1/2">
-                  <DeleteOutlined /> Delete
-                </button>
-              </div>
- */
-
-export default MyNotes;
+export default AllNotes;

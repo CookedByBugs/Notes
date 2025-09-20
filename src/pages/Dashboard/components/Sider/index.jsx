@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   BarChartOutlined,
+  BookOutlined,
   CloseOutlined,
   FileAddOutlined,
   FileOutlined,
@@ -53,14 +54,6 @@ const Sider = () => {
           Dashboard
         </Link>
         <Link
-          to={"/dashboard/profile"}
-          className={`sider-link ${
-            currentTab == "Profile" ? "bg-secondary text-black" : "text-white"
-          }`}
-        >
-          <UserOutlined className="text-xl" /> Profile
-        </Link>
-        <Link
           to={"/dashboard/new-notes"}
           className={`sider-link ${
             currentTab == "New_Notes" ? "bg-secondary text-black" : "text-white"
@@ -75,6 +68,14 @@ const Sider = () => {
           }`}
         >
           <FileOutlined className="text-xl" /> All Notes
+        </Link>
+        <Link
+          to={"/dashboard/my-notes"}
+          className={`sider-link ${
+            currentTab == "My_Notes" ? "bg-secondary text-black" : "text-white"
+          }`}
+        >
+          <BookOutlined className="text-xl" /> My Notes
         </Link>
         <Link
           to={"/dashboard/shared-notes"}
